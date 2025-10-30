@@ -221,6 +221,8 @@ generate_config() {
   sed -i "s/port_xhttp/$9/g" /usr/local/etc/xray/config.json
   sed -i "s/xhttp_decryption/${10}/g" /usr/local/etc/xray/config.json
   sed -i "s/xhttp_mldsa65seed/${11}/g" /usr/local/etc/xray/config.json
+  mkdir -p /var/log/xray
+  chmod -R 777 /var/log/xray/
 
 }
 
