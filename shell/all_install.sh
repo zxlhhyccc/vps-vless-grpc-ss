@@ -190,8 +190,8 @@ generate_config() {
   log "生成配置文件..."
   rm -rf /usr/local/etc/xray/*
 
-  wget -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/config_xray.json -O /usr/local/etc/xray/config.json
-  wget -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/nginx-xray-template.conf -O /etc/nginx/nginx.conf
+  wget -4 -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/config_xray.json -O /usr/local/etc/xray/config.json
+  wget -4 -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/nginx-xray-template.conf -O /etc/nginx/nginx.conf
 
   log "文件替换..."
   log "NGINX文件替换..."
@@ -229,11 +229,11 @@ generate_config() {
 install_ohmyposh() {
   cd ~ || exit
   #bash install_ohmyposh.sh
-  wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-${ARCH_POSH} -O /usr/local/bin/oh-my-posh
+  wget  -4 https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-${ARCH_POSH} -O /usr/local/bin/oh-my-posh
   chmod +x /usr/local/bin/oh-my-posh
 
   mkdir -p ~/themes
-  wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/themes/themes.zip
+  wget  -4 https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/themes/themes.zip
   unzip -o ~/themes/themes.zip -d ~/themes
   chmod u+rw ~/themes/*.omp.*
   rm ~/themes/themes.zip
@@ -242,7 +242,7 @@ install_ohmyposh() {
 generate_cron() {
   log "新增更新定时任务..."
   cd ~ || exit
-  wget -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/xrayud.sh -O ~/xrayud.sh
+  wget  -4 -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/xrayud.sh -O ~/xrayud.sh
   chmod +x xrayud.sh
   echo "0 1 * * * bash xrayud.sh" > crontab.bak
   crontab crontab.bak
@@ -311,7 +311,7 @@ apply_cert() {
 fake_website() {
   cd ~ || exit
   mkdir -p /var/www/html
-  wget -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/html1.zip
+  wget -4 -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/html1.zip
   unzip -o html1.zip -d /var/www/html
 
   dd if=/dev/urandom of=/var/www/html/test bs=100M count=1 iflag=fullblock
