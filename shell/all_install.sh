@@ -229,11 +229,11 @@ generate_config() {
 install_ohmyposh() {
   cd ~ || exit
   #bash install_ohmyposh.sh
-  wget  -4 https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-${ARCH_POSH} -O /usr/local/bin/oh-my-posh
+  wget  -4 -N --no-check-certificate https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-${ARCH_POSH} -O /usr/local/bin/oh-my-posh
   chmod +x /usr/local/bin/oh-my-posh
 
   mkdir -p ~/themes
-  wget  -4 https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/themes/themes.zip
+  wget  -4 -N --no-check-certificate https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/themes/themes.zip
   unzip -o ~/themes/themes.zip -d ~/themes
   chmod u+rw ~/themes/*.omp.*
   rm ~/themes/themes.zip
@@ -242,7 +242,7 @@ install_ohmyposh() {
 generate_cron() {
   log "新增更新定时任务..."
   cd ~ || exit
-  wget  -4 -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/xrayud.sh -O ~/xrayud.sh
+  wget -4 -N --no-check-certificate https://raw.githubusercontent.com/zcluo/vps/master/shell/xrayud.sh -O ~/xrayud.sh
   chmod +x xrayud.sh
   echo "0 1 * * * bash xrayud.sh" > crontab.bak
   crontab crontab.bak
