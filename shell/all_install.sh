@@ -110,11 +110,13 @@ install_deps() {
     ;;
   pacman)
     pacman -Sy
-    pacman -S --noconfirm wget vim curl tar gzip jq openssl nginx unzip python3 augeas
+    pacman -S --noconfirm wget vim curl tar gzip jq openssl nginx unzip python3 augeas cronie
     python3 -m venv /opt/certbot/
     /opt/certbot/bin/pip install --upgrade pip
     /opt/certbot/bin/pip install certbot certbot-nginx
     ln -sf /opt/certbot/bin/certbot /usr/bin/certbot
+    systemctl start cronie.service
+    systemctl enable cronie.service
     ;;
   esac || die "依赖安装失败"
 }
