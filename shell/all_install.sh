@@ -110,7 +110,7 @@ install_deps() {
     ;;
   pacman)
     pacman -Sy
-    pacman -S --noconfirm wget vim curl tar gzip jq openssl nginx unzip python3 augeas cronie
+    pacman -S --noconfirm wget vim curl tar gzip jq openssl nginx unzip python3 augeas cronie fastfetch
     python3 -m venv /opt/certbot/
     /opt/certbot/bin/pip install --upgrade pip
     /opt/certbot/bin/pip install certbot certbot-nginx
@@ -338,7 +338,7 @@ main() {
   log "安装依赖..."
   install_deps
   log "安装fastfetch..."
-  install_fastfetch
+  # install_fastfetch
   log "安装XRAY..."
   install_xray
   log "生成配置文件..."
