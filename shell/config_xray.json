@@ -97,7 +97,8 @@
                 "decryption": "xhttp_decryption",
                 "clients": [
                     {
-                        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                        "flow": "xtls-rprx-vision"
                     }
                 ]
             },
