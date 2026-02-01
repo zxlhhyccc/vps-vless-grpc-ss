@@ -91,57 +91,6 @@
         },
         {
             "listen": "0.0.0.0",
-            "port": port_grpc,
-            "protocol": "vless",
-            "settings": {
-                "clients": [
-                    {
-                        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-                        "flow": ""
-                    }
-                ],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "grpc",
-                "security": "reality",
-                "realitySettings": {
-                    "show": false,
-                    "dest": "www.amazon.com:443",
-                    "xver": 0,
-                    "serverNames": [
-                        "www.amazon.com",
-                        "amazon.com",
-                        "amzn.com",
-                        "us.amazon.com",
-                        "www.m.amazon.com"
-                    ],
-                    "privateKey": "realityprivatekey",
-                    "shortIds": [
-                        "",
-                        "a1",
-                        "b2",
-                        "c3",
-                        "d4",
-                        "e5",
-                        "f6"
-                    ]
-                },
-                "grpcSettings": {
-                    "serviceName": "grpc"
-                }
-            },
-            "sniffing": {
-                "enabled": true,
-                "destOverride": [
-                    "http",
-                    "tls",
-                    "quic"
-                ]
-            }
-        },
-        {
-            "listen": "0.0.0.0",
             "port": port_xhttp,
             "protocol": "vless",
             "settings": {
